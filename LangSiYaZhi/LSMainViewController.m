@@ -17,6 +17,7 @@
 #import "LSModelViewController.h"
 #import "ZHWujinViewController.h"
 #import "ZHSecurityViewController.h"
+#import "BejoyViewController.h"
 
 @interface LSMainViewController ()
 {
@@ -123,7 +124,7 @@ int i = 0;
         case 5:
         {
             
-            lsVC = [[LSModelViewController alloc] init];
+            lsVC = [[BejoyViewController alloc] init];
 
             break;
         }
@@ -413,7 +414,7 @@ int i = 0;
             case 0:
             {
                 UIImageView *imgView1 = [[ImageView share] addToView:imgV imagePathName:@"雅致-产品1-图片2" rect:imgV.frame];
-                UIImageView *imgView2 = [[ImageView share] addToView:imgV imagePathName:@"雅致-产品1-文字" rect:imgV.frame];
+                UIImageView *imgView2 = [[ImageView share] addToView:imgV imagePathName:@"雅致-产品1-文字1 " rect:imgV.frame];
                 
                 imgView1.tag = 1;
                 imgView2.tag = 2;
