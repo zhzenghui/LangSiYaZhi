@@ -96,7 +96,7 @@ int trans = 0;
         v.alpha = 1;
         
         
-
+        v.alpha = .8;
         
         
         CGFloat f = RANDOM_FLOAT(3.0, 4.0);
@@ -111,12 +111,27 @@ int trans = 0;
         else
             trans = 0;
         
+        
+        
+
+        
         [self fullSrceen:v time:f transition:trans];
         
 
 
 
     }
+
+    
+    
+    
+
+    UIView *v1 = outgoingLineViews[11];
+    v1.alpha = 1;
+    
+    
+    [self fullSrceen:v1 time:3 transition:trans];
+        
 
 }
 
@@ -188,7 +203,9 @@ int trans = 0;
             
             
             UIView *subsnapshot;
-            subsnapshot = (UIView *)[view resizableSnapshotViewFromRect:subrect afterScreenUpdates:YES withCapInsets:UIEdgeInsetsZero];
+            subsnapshot = [view resizableSnapshotViewFromRect:subrect afterScreenUpdates:YES withCapInsets:UIEdgeInsetsZero];
+
+
             subrect.origin.y += yOffset;
             subsnapshot.frame = subrect;
             [self addSubview:subsnapshot];

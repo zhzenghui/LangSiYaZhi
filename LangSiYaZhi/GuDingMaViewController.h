@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GuDingMaViewController : UIViewController
+@interface GuDingMaViewController : LSViewController
 
 @end

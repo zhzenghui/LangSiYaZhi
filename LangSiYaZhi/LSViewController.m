@@ -18,16 +18,25 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.view.frame = CGRectMake(0, 0, 1024, 768);
     }
     return self;
+}
+
+
+- (void)loadView
+{
+    [super loadView];
+    
+    
+    self.view.frame = CGRectMake(0, 0, 1024, 768);
+
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.view.frame = CGRectMake(0, 0, 1024, 768);
 
     // Do any additional setup after loading the view.
 }

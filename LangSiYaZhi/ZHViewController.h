@@ -10,7 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 
-@interface ZHViewController : UIViewController
+@interface ZHViewController : LSViewController
 
 
 @property (strong, nonatomic) MPMoviePlayerController *videoController;

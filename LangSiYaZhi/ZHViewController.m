@@ -80,7 +80,7 @@ int i = 0;
     }
     
     
-    lsVC.view.frame = self.view.frame;
+    lsVC.view.frame = CGRectMake(0, 0, 1024, 768);
     
     lsVC.view.alpha = 0;
     
@@ -118,8 +118,6 @@ int i = 0;
     NineSquaredView *nsv = [[NineSquaredView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
     [self.contentView addSubview:nsv];
     nsv.viewsArray = a;
-
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated

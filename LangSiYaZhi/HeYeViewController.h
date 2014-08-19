@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HeYeViewController : UIViewController
+@interface HeYeViewController : LSViewController
 
 @end

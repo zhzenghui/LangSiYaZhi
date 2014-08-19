@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BashouViewController : UIViewController
+@interface BashouViewController : LSViewController
 
 @end
