@@ -26,6 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.view.frame = CGRectMake(0, 0, 1024, 768);
+
     // Do any additional setup after loading the view.
 }
 

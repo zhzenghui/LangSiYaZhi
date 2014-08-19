@@ -16,4 +16,9 @@
 @property (strong, nonatomic) MPMoviePlayerController *videoController;
 
 
+@property (strong, nonatomic) IBOutlet UIView *feiYeView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+
+- (IBAction)enterMain:(id)sender;
+
 @end

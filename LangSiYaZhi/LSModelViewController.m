@@ -9,6 +9,8 @@
 #import "LSModelViewController.h"
 #import "TransitionVerticalAnimationView.h"
 
+#import "Image.h"
+
 
 @interface LSModelViewController ()
 {
@@ -146,9 +148,9 @@
         }
         
         
-        NSString *imgPath = [NSString stringWithFormat:@"雅致-%@", string];
+        NSString *imgPath = [NSString stringWithFormat:@"雅致-%@@2x", string];
         UIImageView *imgV = [[UIImageView alloc] initWithFrame:self.view.frame];
-        imgV.image = [UIImage imageNamed:imgPath];
+        imgV.image = [Image imageNamed:imgPath];
 
         [viewsArray addObject:imgV];
         
@@ -160,13 +162,7 @@
     
 
     
-    tra = [[TransitionVerticalAnimationView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
-    [self.contentView addSubview:tra];
-    tra.viewsArray = viewsArray;
-    
-    
-    [tra addSubViews];
-    
+
     
     
     
@@ -176,6 +172,27 @@
 {
     [super viewDidLoad];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    
+    tra = [[TransitionVerticalAnimationView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
+    [self.contentView addSubview:tra];
+    tra.viewsArray = viewsArray;
+    
+    
+    [tra addSubViews];
+    
+    
+    tra.alpha = 0;
+
+    [UIView animateWithDuration:KMiddleDuration animations:^{
+        tra.alpha = 1;
+        
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning

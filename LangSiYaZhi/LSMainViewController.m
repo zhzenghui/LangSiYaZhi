@@ -125,13 +125,13 @@ int i = 0;
         {
             
             lsVC = [[BejoyViewController alloc] init];
-
+            return;
             break;
         }
         case 6:
         {
             
-            lsVC = [[LSModelViewController alloc] init];
+            lsVC = [[BejoyViewController alloc] init];
 
             break;
         }
@@ -140,6 +140,7 @@ int i = 0;
     }
 
     
+    lsVC.view.frame = CGRectMake(0, 0, 1024, 768);
     
     lsVC.view.alpha = 0;
     
@@ -203,8 +204,8 @@ int i = 0;
 {
     
     
-    UIImageView *imgView1 = (UIImageView *)[viewsArray[0] viewWithTag:1];//[[ImageView share] addToView:v1 imagePathName:@"雅致-产品1-图片2" rect:v1.frame];
-    UIImageView *imgView2 = (UIImageView *)[viewsArray[0] viewWithTag:2];//[[ImageView share] addToView:v1 imagePathName:@"雅致-产品1-文字" rect:v1.frame];
+    UIImageView *imgView1 = (UIImageView *)[viewsArray[0] viewWithTag:1];
+    UIImageView *imgView2 = (UIImageView *)[viewsArray[0] viewWithTag:2];
     
     imgView1.alpha = 0;
     imgView2.alpha = 0;
@@ -212,11 +213,8 @@ int i = 0;
     [UIView animateWithDuration:KLongDuration animations:^{
        
         imgView1.alpha = 1;
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:KLongDuration animations:^{
-            
-            imgView2.alpha = 1;
-        }];
+        imgView2.alpha = 1;
+
     }];
     
     
@@ -399,6 +397,10 @@ int i = 0;
 - (void)loadImagesView
 {
     
+    
+   UIImageView *tempIV = [[ImageView share] addToView:self.contentView imagePathName:@"雅致-产品1-图片1" rect:self.view.frame];
+    tempIV.tag = 10;
+
     viewsArray = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < 10; i ++) {
@@ -413,8 +415,11 @@ int i = 0;
         switch (i) {
             case 0:
             {
+                
+                
+
                 UIImageView *imgView1 = [[ImageView share] addToView:imgV imagePathName:@"雅致-产品1-图片2" rect:imgV.frame];
-                UIImageView *imgView2 = [[ImageView share] addToView:imgV imagePathName:@"雅致-产品1-文字1 " rect:imgV.frame];
+                UIImageView *imgView2 = [[ImageView share] addToView:imgV imagePathName:@"雅致-产品1-文字1" rect:imgV.frame];
                 
                 imgView1.tag = 1;
                 imgView2.tag = 2;
@@ -528,15 +533,11 @@ int i = 0;
     [self loadImagesView];
     
     
-    tra = [[TransitionHorizontalAnimationView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
-    [self.contentView addSubview:tra];
-    tra.viewsArray = viewsArray;
-    tra.delegate = self;
-    [tra addSubViews];
+
 
     
-    self.feiYeView.frame = self.view.frame;
-    [self.view addSubview:self.feiYeView];
+//    self.feiYeView.frame = self.view.frame;
+//    [self.view addSubview:self.feiYeView];
     
 }
 
@@ -549,7 +550,6 @@ int i = 0;
     [self startUpdates];
     
     
- 
     
 }
 
@@ -557,16 +557,50 @@ int i = 0;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-    
-
-    
-    
+    self.view.frame = CGRectMake(0, 0, 1024, 768);
 
 
+    tra = [[TransitionHorizontalAnimationView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
+    [self.contentView addSubview:tra];
+    tra.viewsArray = viewsArray;
+    tra.delegate = self;
+    [tra addSubViews];
+    
+    
+    
+    UIImageView *tempIV = (UIImageView *)[self.contentView viewWithTag:10];    
+    [tempIV removeFromSuperview];
+    
+    
+    [self i1Animation];
+
+
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:YES];
+    
+    [tra removeFromSuperview];
+    tra = nil;
+    
+    [viewsArray removeAllObjects];
+    viewsArray = nil;
+    
+    
+    
+    
+    if ([timer isValid]) {
+        [timer invalidate];
+        
+        timer = nil;
+    }
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    
+    
 }
 
 #pragma mark - CMMotionManager

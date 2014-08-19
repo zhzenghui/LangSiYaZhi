@@ -65,7 +65,7 @@
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:[UIImage imageNamed:@"雅致-产品-返回"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
-    button.frame = CGRectMake(1860/2,26/2,110/2,110/2);
+    button.frame = CGRectMake(0, 768-55,110/2,110/2);
     [self.view addSubview:button];
     
     blackground = [[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 1024, 768)]autorelease];

@@ -24,14 +24,14 @@
     [UIView animateWithDuration:KMiddleDuration animations:^{
         self.view.alpha  = 0;
     }];
-    
-    
-    
 }
 
 - (void)loadView{
     [super loadView];
+    
+
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"AD-bejoy-0"]];
+    self.view.frame = CGRectMake(0, 0, 1024, 768);
     
     adImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AD-bejoy-1"]];
     adImageView.frame = CGRectMake(1024, 0, 1024, 768);
@@ -54,7 +54,7 @@
 
  
 
-    [[Button share] addToView:self.view addTarget:self rect:CGRectMake(0  , 700, 110/2, 130/2) tag:Action_Back action:@selector(back:) imagePath:@"按钮-返回"];
+    [[Button share] addToView:self.view addTarget:self rect:CGRectMake(0  , 768-55, 110/2, 110/2) tag:Action_Back action:@selector(back:) imagePath:@"雅致-产品-返回"];
 
 
 
@@ -65,8 +65,7 @@
     [super viewDidAppear:YES];
     
     [UIView animateWithDuration:KMiddleDuration animations:^{
-        adImageView.frame = self.view.frame;
-        
+        adImageView.frame =     self.view.frame = CGRectMake(0, 0, 1024, 768);;   
     }];
 }
 

@@ -12,7 +12,7 @@
 
 
 
-@interface LSMainViewController : UIViewController<TransitionHorizontalAnimationViewDelegate>
+@interface LSMainViewController : LSViewController<TransitionHorizontalAnimationViewDelegate>
 
 
 
