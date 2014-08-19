@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LSMainViewController">
+            <connections>
+                <outlet property="contentView" destination="i5M-Pr-FkT" id="03Y-f9-KYC"/>
+                <outlet property="view" destination="mMC-JN-Xl7" id="Fev-dS-ijy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="mMC-JN-Xl7">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i5M-Pr-FkT">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="XPS-fR-kbo" appends="YES" id="TPB-ef-EAA"/>
+                        <outletCollection property="gestureRecognizers" destination="fw8-Gc-UiK" appends="YES" id="MAG-m4-CJD"/>
+                    </connections>
+                </view>
+                <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="雅致-首页导航条-bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="xrB-J8-wr0">
+                    <rect key="frame" x="0.0" y="0.0" width="55" height="768"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                </imageView>
+                <button hidden="YES" appearanceType="aqua" opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEf-HG-mQe">
+                    <rect key="frame" x="0.0" y="76" width="55" height="65"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="按钮-产品.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openViewController:" destination="-1" eventType="touchUpInside" id="7rt-XS-AwE"/>
+                    </connections>
+                </button>
+                <button hidden="YES" appearanceType="aqua" opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aq4-4X-8c2">
+                    <rect key="frame" x="0.0" y="141" width="55" height="65"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="按钮-价格.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openViewController:" destination="-1" eventType="touchUpInside" id="7V6-uZ-c2u"/>
+                    </connections>
+                </button>
+                <button hidden="YES" appearanceType="aqua" opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pT-CQ-43M">
+                    <rect key="frame" x="0.0" y="206" width="55" height="65"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="按钮-五金.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openViewController:" destination="-1" eventType="touchUpInside" id="TIe-7N-vMr"/>
+                    </connections>
+                </button>
+                <button hidden="YES" appearanceType="aqua" opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H51-Vr-0ae">
+                    <rect key="frame" x="0.0" y="271" width="55" height="65"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="按钮-安全.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openViewController:" destination="-1" eventType="touchUpInside" id="k8G-0B-hpH"/>
+                    </connections>
+                </button>
+                <button hidden="YES" appearanceType="aqua" opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myX-ef-DEp">
+                    <rect key="frame" x="0.0" y="336" width="55" height="65"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="按钮-历史.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openViewController:" destination="-1" eventType="touchUpInside" id="3ry-Dn-zEl"/>
+                    </connections>
+                </button>
+                <button hidden="YES" appearanceType="aqua" opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJb-L4-3xt">
+                    <rect key="frame" x="0.0" y="704" width="55" height="65"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="按钮-bejoy.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openViewController:" destination="-1" eventType="touchUpInside" id="Yfr-aR-qn8"/>
+                    </connections>
+                </button>
+                <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYQ-SW-KOE" userLabel="back">
+                    <rect key="frame" x="0.0" y="713" width="55" height="55"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="雅致-产品-返回.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="back:" destination="-2" eventType="touchUpInside" id="9nt-CC-hhU"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <swipeGestureRecognizer direction="left" id="XPS-fR-kbo">
+            <connections>
+                <action selector="transtionTouch:" destination="-1" id="dD4-Tn-GXv"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="right" id="fw8-Gc-UiK">
+            <connections>
+                <action selector="transtionTouch:" destination="-1" id="gZu-ZK-wE9"/>
+            </connections>
+        </swipeGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="按钮-bejoy.png" width="55" height="65"/>
+        <image name="按钮-五金.png" width="55" height="65"/>
+        <image name="按钮-产品.png" width="55" height="65"/>
+        <image name="按钮-价格.png" width="55" height="65"/>
+        <image name="按钮-历史.png" width="55" height="65"/>
+        <image name="按钮-安全.png" width="55" height="65"/>
+        <image name="雅致-产品-返回.png" width="55" height="55"/>
+        <image name="雅致-首页导航条-bg.png" width="55" height="768"/>
+    </resources>
+</document>
