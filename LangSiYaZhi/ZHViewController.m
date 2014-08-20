@@ -19,10 +19,63 @@
 
 
 @interface ZHViewController ()
-
+{
+    NineSquaredView *nsv;
+    NSMutableArray *a;
+}
 @end
 
 @implementation ZHViewController
+
+
+
+
+
+#pragma mark - CMMotionManager
+static const NSTimeInterval deviceMotionMin = 0.1;
+#define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
+//#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+- (void)startUpdates
+{
+    NSTimeInterval updateInterval = deviceMotionMin ;
+    
+    CMMotionManager *mManager = [(ZHAppDelegate *)[[UIApplication sharedApplication] delegate] sharedManager];
+    
+    
+    if ([mManager isDeviceMotionAvailable] == YES) {
+        [mManager setDeviceMotionUpdateInterval:updateInterval];
+        [mManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion *deviceMotion, NSError *error) {
+            
+            double gravityX = deviceMotion.gravity.x;
+            double gravityY = deviceMotion.gravity.y;
+            double gravityZ = deviceMotion.gravity.z;
+            
+            
+            //            角度
+            CGFloat r = sqrtf(gravityX*gravityX + gravityY*gravityY + gravityZ*gravityZ);
+            CGFloat tiltForwardBackward = acosf(gravityZ/r) * 180.0f / M_PI - 90.0f;
+            CGFloat x = 0 ;
+            
+            if (tiltForwardBackward > 50) {
+                x = tiltForwardBackward - 50;
+            }
+            else  {
+                x = tiltForwardBackward - 50;
+            }
+            //                NSLog(@"%f", tiltForwardBackward);
+            //
+                NSLog(@"%f", x);
+            self.suoImageView.frame = CGRectMake(x*2, 0, self.suoImageView.frame.size.width, self.suoImageView.frame.size.height);
+            
+        }];
+    }
+}
+
+- (void)stop
+{
+    CMMotionManager *mManager = [(ZHAppDelegate *)[[UIApplication sharedApplication] delegate] sharedManager];
+    [mManager stopDeviceMotionUpdates];
+}
 
 
 
@@ -100,24 +153,33 @@ int i = 0;
 {
     [super viewDidLoad];
     
-    self.view.frame = CGRectMake(0, 0, 1024, 768);
+    
+    [self startUpdates];
 
     
-    NSMutableArray *a = [[NSMutableArray alloc] init];
+    
+    
+    
+    self.view.frame = CGRectMake(0, 0, 1024, 768);
+
+    nsv = [[NineSquaredView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
+    [self.contentView addSubview:nsv];
+    
+    
+    
+    
+    a = [[NSMutableArray alloc] init];
     
     for (int i = 1 ; i < 6; i++) {
         NSString *s = [NSString stringWithFormat:@"雅致-首页-bg0%i@2x.png", i];
         
         UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:s]];
         iv.frame = CGRectMake(0, 0, 1024, 768);
-
+        
         [a addObject:iv];
     }
-    
-    
-    NineSquaredView *nsv = [[NineSquaredView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
-    [self.contentView addSubview:nsv];
-    nsv.viewsArray = a;
+
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -136,6 +198,14 @@ int i = 0;
 }
 
 
+
+- (void)enter
+{
+
+    
+    nsv.viewsArray = a;
+
+}
 - (IBAction)enterMain:(id)sender {
     
     [UIView animateWithDuration:KLongDuration animations:^{
@@ -144,6 +214,10 @@ int i = 0;
     } completion:^(BOOL finished) {
         if (finished) {
             
+            
+            
+            [self stop];
+            [self enter];
         }
         
         
