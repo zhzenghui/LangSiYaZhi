@@ -16,10 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView appearanceType="aqua" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="雅致-首页-bg01.png" translatesAutoresizingMaskIntoConstraints="NO" id="nm8-8s-hSH">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                             <view appearanceType="aqua" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U3V-W4-Dvn">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                                 <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -131,6 +135,7 @@
                     <connections>
                         <outlet property="contentView" destination="U3V-W4-Dvn" id="xVg-aU-Vvy"/>
                         <outlet property="feiYeView" destination="ySv-zC-ksB" id="Gid-Ie-VN1"/>
+                        <outlet property="suoImageView" destination="tKm-Mn-w4b" id="dON-Mg-Ypw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -148,6 +153,7 @@
         <image name="雅致-扉页-bg01.png" width="1024" height="768"/>
         <image name="雅致-扉页-bg02.png" width="1024" height="256"/>
         <image name="雅致-扉页-bg03.png" width="1024" height="256"/>
+        <image name="雅致-首页-bg01.png" width="1024" height="768"/>
         <image name="雅致-首页导航条-bg.png" width="55" height="768"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
