@@ -136,15 +136,24 @@
     [self.videoController setContentURL:theURL];
     [self.videoController.view setFrame:self.view.frame];
     [self.view addSubview:self.videoController.view];
-    self.videoController.controlStyle = MPMovieControlStyleNone;
-
+//    self.videoController.controlStyle = MPMovieControlStyleNone;
+    self.videoController.fullscreen = YES;
     
     
-    [[Button share] addToView:self.videoController.view addTarget:self rect:self.view.frame tag:111 action:@selector(videoPlayBackDidFinish:)];
+//    [[Button share] addToView:self.videoController.view addTarget:self rect:self.view.frame tag:111 action:@selector(videoPlayBackDidFinish:)];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(videoPlayBackDidFinish:)
                                                  name:MPMoviePlayerPlaybackDidFinishNotification
                                                object:self.videoController];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(videoPlayBackDidFinish:)
+                                                 name:MPMoviePlayerWillExitFullscreenNotification
+                                               object:nil];
+    
+    
+    
     [self.videoController play];
 
     
