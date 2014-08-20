@@ -20,7 +20,7 @@
     int currentIndex ;
     int f ;
     int t ;
-    
+    int currentTraIndex;
     
     TransitionVerticalAnimationView *tra;
     
@@ -44,14 +44,20 @@
 - (void)openModle:(UIButton *)button
 {
 
+
+    
     [self setButtonStatus:button];
     
     int fi = 0 ;
     if (button.tag == 1) {
         fi = viewsArray.count-1;
     }
+
     
-    [tra startAnimation:fi t:button.tag-1];
+    [tra startAnimation:currentIndex t:button.tag-1];
+    
+    
+    currentIndex = button.tag-1;
 }
 
 
