@@ -125,6 +125,7 @@
 		C002F127199DE1C6009CD7FF /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C002F126199DE1C6009CD7FF /* ImageView.m */; };
 		C002F129199DE239009CD7FF /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C002F128199DE239009CD7FF /* CoreMotion.framework */; };
 		C0619F2A19A1E228007F7247 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = C0619F2919A1E228007F7247 /* Image.m */; };
+		C07E0E7D19A438A800455DEE /* lens1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C07E0E7C19A438A800455DEE /* lens1.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,7 +238,6 @@
 		C002E4CE199DD85B009CD7FF /* 雅致-型号-P21Q@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "雅致-型号-P21Q@2x.png"; sourceTree = "<group>"; };
 		C002E4CF199DD85B009CD7FF /* 雅致-型号-P31@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "雅致-型号-P31@2x.png"; sourceTree = "<group>"; };
 		C002E4D0199DD85B009CD7FF /* 雅致-型号-P42@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "雅致-型号-P42@2x.png"; sourceTree = "<group>"; };
-		C002E4D3199DD85B009CD7FF /* lens1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lens1.mp4; sourceTree = "<group>"; };
 		C002E4D4199DD85B009CD7FF /* 雅致-安全-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "雅致-安全-bg@2x.png"; sourceTree = "<group>"; };
 		C002E4D6199DD85B009CD7FF /* 雅致-安全-文字1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "雅致-安全-文字1@2x.png"; sourceTree = "<group>"; };
 		C002E4D7199DD85B009CD7FF /* 雅致-安全-文字2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "雅致-安全-文字2@2x.png"; sourceTree = "<group>"; };
@@ -284,6 +284,7 @@
 		C002F128199DE239009CD7FF /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		C0619F2819A1E228007F7247 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		C0619F2919A1E228007F7247 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		C07E0E7C19A438A800455DEE /* lens1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lens1.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -570,7 +571,7 @@
 		C002E4D2199DD85B009CD7FF /* 安全-视频 */ = {
 			isa = PBXGroup;
 			children = (
-				C002E4D3199DD85B009CD7FF /* lens1.mp4 */,
+				C07E0E7C19A438A800455DEE /* lens1.mp4 */,
 				C002E4D4199DD85B009CD7FF /* 雅致-安全-bg@2x.png */,
 				C002E4D6199DD85B009CD7FF /* 雅致-安全-文字1@2x.png */,
 				C002E4D7199DD85B009CD7FF /* 雅致-安全-文字2@2x.png */,
@@ -799,6 +800,7 @@
 				C002D877199DD81E009CD7FF /* Images.xcassets in Resources */,
 				C002F0D3199DD85C009CD7FF /* 雅致-产品8-图片1@2x.png in Resources */,
 				C002F0DC199DD85C009CD7FF /* 按钮-型号-D42@2x.png in Resources */,
+				C07E0E7D19A438A800455DEE /* lens1.mp4 in Resources */,
 				C002F0CC199DD85C009CD7FF /* 雅致-产品5-图片2@2x.png in Resources */,
 				C002F0D5199DD85C009CD7FF /* 雅致-产品9-图片1@2x.png in Resources */,
 				C002F0F9199DD85C009CD7FF /* 雅致-扉页-bg02@2x.png in Resources */,
