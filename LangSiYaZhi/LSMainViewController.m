@@ -33,6 +33,8 @@
     
     TransitionHorizontalAnimationView *tra;
     
+    bool isTouch;
+    
 }
 @end
 
@@ -41,10 +43,17 @@
 
 - (IBAction)transtionTouch:(id)sender
 {
+    
+    
+    if (isTouch == YES) {
+        return;
+    }
+
     UISwipeGestureRecognizer *sgr = (UISwipeGestureRecognizer *)sender;
     
     
     if (sgr.direction == UISwipeGestureRecognizerDirectionLeft) {
+
         if (currentIndex < viewsArray.count-1 ) {
             f = currentIndex;
             currentIndex ++;
@@ -77,9 +86,9 @@
     }
     
     
- 
     
     
+    isTouch = YES;
     [tra startAnimation:f t:t];
     
     
@@ -335,7 +344,11 @@ int i = 0;
 
 - (void)currentIndex:(int)index
 {
-     
+    
+    
+    
+    isTouch = NO;
+    
     if ([timer isValid]) {
         [timer invalidate];
         
@@ -547,9 +560,8 @@ int i = 0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self startUpdates];
     
-    
+    isTouch = NO;
     
 }
 
@@ -601,46 +613,6 @@ int i = 0;
     [super didReceiveMemoryWarning];
     
     
-}
-
-#pragma mark - CMMotionManager
-static const NSTimeInterval deviceMotionMin = 0.1;
-#define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
-//#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
-- (void)startUpdates
-{
-    NSTimeInterval updateInterval = deviceMotionMin ;
-    
-    CMMotionManager *mManager = [(ZHAppDelegate *)[[UIApplication sharedApplication] delegate] sharedManager];
-    
-    
-    if ([mManager isDeviceMotionAvailable] == YES) {
-        [mManager setDeviceMotionUpdateInterval:updateInterval];
-        [mManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion *deviceMotion, NSError *error) {
-            
-            double gravityX = deviceMotion.gravity.x;
-            double gravityY = deviceMotion.gravity.y;
-            double gravityZ = deviceMotion.gravity.z;
-
-            
-                //            角度
-                CGFloat r = sqrtf(gravityX*gravityX + gravityY*gravityY + gravityZ*gravityZ);
-                CGFloat tiltForwardBackward = acosf(gravityZ/r) * 180.0f / M_PI - 90.0f;
-                CGFloat x = 0 ;
-                
-                if (tiltForwardBackward > 50) {
-                    x = tiltForwardBackward - 50;
-                }
-                else  {
-                    x = tiltForwardBackward - 50;
-                 }
-//                NSLog(@"%f", tiltForwardBackward);
-//
-//                NSLog(@"%f", x);
-                self.suoImageView.frame = CGRectMake(x*2, 0, self.suoImageView.frame.size.width, self.suoImageView.frame.size.height);
- 
-        }];
-    }
 }
 
 
