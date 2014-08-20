@@ -62,7 +62,7 @@
                                     <action selector="openViewController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F37-NQ-mda"/>
                                 </connections>
                             </button>
-                            <button appearanceType="aqua" opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeR-In-5MB">
+                            <button hidden="YES" appearanceType="aqua" opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeR-In-5MB">
                                 <rect key="frame" x="0.0" y="336" width="55" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="按钮-历史.png">
