@@ -7,17 +7,20 @@
 //
 
 #import "NineSquaredView.h"
-#import "CMSCoinView.h"
+#import "Image.h"
 
 
 @implementation NineSquaredView
+
+
+
+
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         currentIndex = 0;
-        [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(animation) userInfo:nil repeats:YES];
     }
     return self;
 }
@@ -65,20 +68,42 @@
     if ( ! [self.viewsArray isEqual: viewsArray]) {
         _viewsArray = viewsArray;
         [self setBackground];
+        [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(animation) userInfo:nil repeats:YES];
+
     }
 }
 
 #define HLINEHEIGHT 256
-#define HLINEWIDTH 256
+#define HLINEWIDTH 341
+
 #define RANDOM_FLOAT(MIN,MAX) (((CGFloat)arc4random() / 0x100000000) * (MAX - MIN) + MIN);
 
 
 int trans = 0;
 
+- (UIImage *)captureView:(UIView *)view {
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    
+    UIGraphicsBeginImageContext(screenRect.size);
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    [[UIColor blackColor] set];
+    CGContextFillRect(ctx, screenRect);
+    
+    [view.layer renderInContext:ctx];
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+
 - (void)animateTransition:(UIView *)fromVC
 {
     
-    
+    [self snapshotViewAfterScreenUpdates:YES];
     UIView *mainSnap = [fromVC snapshotViewAfterScreenUpdates:YES];
 
     
@@ -91,46 +116,25 @@ int trans = 0;
     
  
     
-    int i = 0;
     for (UIView *v in outgoingLineViews) {
-        v.alpha = 1;
-        
-        
-        v.alpha = .8;
-        
-        
-        CGFloat f = RANDOM_FLOAT(3.0, 4.0);
-        NSLog(@"%i  %f", i, f);
-        i ++;
+        v.hidden =  NO;
 
-        
+        CGFloat f = RANDOM_FLOAT(3.0, 4.0);
 
         if (trans == 0) {
             trans = 1;
         }
         else
             trans = 0;
-        
-        
-        
-
-        
+    
         [self fullSrceen:v time:f transition:trans];
-        
-
-
 
     }
 
     
     
-    
 
-    UIView *v1 = outgoingLineViews[11];
-    v1.alpha = 1;
-    
-    
-    [self fullSrceen:v1 time:3 transition:trans];
+
         
 
 }
@@ -139,8 +143,10 @@ int trans = 0;
 
 - (void)fullSrceen:(UIView *)b time:(CGFloat)time transition:(int )transition
 {
-    CGContextRef context = UIGraphicsGetCurrentContext();
+
     
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
 	//开始准备动画
     
 	[UIView beginAnimations:nil context:context];
@@ -159,11 +165,9 @@ int trans = 0;
     
     if (transition) {
         [UIView setAnimationTransition: UIViewAnimationTransitionFlipFromRight forView:b cache:NO];  //从上向下
-        
     }
     else {
         [UIView setAnimationTransition: UIViewAnimationTransitionFlipFromLeft forView:b cache:NO];  //从上向下
-
     }
 	//设置动画委托
     
@@ -193,28 +197,30 @@ int trans = 0;
 
 
     NSMutableArray *lineViews = [NSMutableArray array];
-    
+    int i = 0;
     for (int y=0; y<CGRectGetHeight(view.frame); y+=height) {
 
         for (int x=0; x<CGRectGetWidth(view.frame); x+=width) {
 
-
+            
             CGRect subrect = CGRectMake(x, y, lineWidth, lineHieht);
             
             
             UIView *subsnapshot;
             subsnapshot = [view resizableSnapshotViewFromRect:subrect afterScreenUpdates:YES withCapInsets:UIEdgeInsetsZero];
-
-
+            subsnapshot.opaque = NO;
+            
             subrect.origin.y += yOffset;
             subsnapshot.frame = subrect;
+            subsnapshot.hidden = YES;
+
+
+ 
             [self addSubview:subsnapshot];
-
-            subsnapshot.alpha = 0;
-            
             [lineViews addObject:subsnapshot];
+        
             
-
+            i ++;
 
         }
 
