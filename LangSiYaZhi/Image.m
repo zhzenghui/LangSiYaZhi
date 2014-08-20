@@ -22,6 +22,9 @@
 + (UIImage *)imageNamed:(NSString *)name
 {
     NSString *pathStr = [[NSBundle mainBundle] pathForResource:name ofType:@"png"];
+    if ( pathStr == nil ) {
+        pathStr = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@%@", name, @"@2x"] ofType:@"png"];
+    }
     UIImage* img =  [[UIImage alloc] initWithContentsOfFile:pathStr];
     return  img;
 
